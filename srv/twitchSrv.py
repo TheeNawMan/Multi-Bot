@@ -3,7 +3,7 @@
 import re
 import socket
 from srv.jsonLoader import HOST, CHAN, NICK, PASS, PORT, jsonCfg
-from srv.cmd import command_test, command_math
+from srv.cmd import *
 
 def twitchStart():
     if jsonCfg["other"]["debug"] == "on":
@@ -53,7 +53,8 @@ def twitchStart():
         if len(msg) >= 1:
             msg = msg.split(' ')
             options = {'!test': command_test(),
-                        '!math': command_math()}
+                        '!math': command_math(),
+                        '!help': command_help()}
 
             if msg[0] in options:
                 cmd = str(options[msg[0]])

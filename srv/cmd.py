@@ -7,3 +7,7 @@ def command_math():
     b = 10
     c = a + b
     return str(c)
+
+def command_help():
+    return 'The following commands are allowed by our bot. (!help, !math, !test'
+
