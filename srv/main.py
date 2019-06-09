@@ -3,18 +3,18 @@
 import re
 import socket
 
-
-from srv.cfgLoad import *
+from srv.cfgLoad import HOST, CHAN, NICK, PASS, PORT, datastore
 
 ## Setup variable to connect to server
-lHOST = HOST
-lPORT = PORT
-lCHAN = CHAN
-lNICK = NICK
-lPASS = PASS
+#lHOST = HOST
+#lPORT = PORT
+#lCHAN = CHAN
+#lNICK = NICK
+#lPASS = PASS
 
 if datastore["other"]["debug"] == "on":
     print("HOST: " + HOST + "\nCHAN: " + CHAN + "\nNICK: " + NICK + "\nPASS: " + PASS)
+    #print("HOST: " + lHOST + "\nCHAN: " + lCHAN + "\nNICK: " + lNICK + "\nPASS: " + lPASS)
 else:
     print(None)
 
