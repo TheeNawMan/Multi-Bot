@@ -1,0 +1,11 @@
+{
+    "twitch":{
+        "bot_nick": "username",
+        "token": "oauth:fullstring",
+        "channel": "channelname",
+        "client-id": "pasteidhere",
+    }
+    "other":{
+        "prefix": "!"
+    }
+}

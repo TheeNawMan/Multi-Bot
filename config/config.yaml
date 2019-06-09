@@ -1,0 +1,6 @@
+twitch:
+    bot_nick: "theenawman"
+    token: "oauth:rl5fmvpalppr6go837or5vxncya8uj"
+    channel: "theenawman"
+    client-id: "q0ngsz9th7zpglwpr57fu6gbanaj5u"
+    prefix: "!"
