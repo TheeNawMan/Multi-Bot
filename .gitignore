@@ -3,3 +3,4 @@ srv/__pychace__/**
 .gitattributes
 .gitignore
 TODO.md
+*.pyc
