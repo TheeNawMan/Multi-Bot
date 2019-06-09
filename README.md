@@ -8,7 +8,7 @@ Multi-Bot is a fully modular bot that allows for multiple features and commands 
 
 - User mode = Allows special bot permissions per user (COMING SOON)
 - Music = Allows playing music from multiple sources (COMING SOON)
-- Custom Cos
+- Custom Commands
 - Point system = Allows assigning points to users for raffels and giveaways(COMING SOON)
 - Poll(s) = allows chat polls for game selection and other things.(COMING SOON)
 - Chat watchdog = Allows certain phrases to be added to dictonary and auto ban when found.(COMING SOON)
