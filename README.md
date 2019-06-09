@@ -4,6 +4,10 @@
 
 Multi-Bot is a fully modular bot that allows for multiple features and commands to be enabled and disabled as you need. This is also a self hosted bot which allows for completed modification.
 
+# Required Librarys
+- requests
+- discord
+
 # Features
 
 - User mode = Allows special bot permissions per user (COMING SOON)
@@ -15,7 +19,7 @@ Multi-Bot is a fully modular bot that allows for multiple features and commands 
 
 # HOW TO USE
 
-- Install instructions COMING SOON
+- Currently all that is required is to take config_example.json and update with you client specific settings. Once updated save as config.json.
 
 # PLUGINS REQUIRED
 
