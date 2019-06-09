@@ -1,16 +1,19 @@
 {
     "twitch":{
-        "bot_nick": "testbot",
         "token": "oauth:fullstring",
+        "clientID": "clientID",
         "channel": "#channelname",
-        "client-id": "pasteidhere",
         "nick": "twitchusername",
         "intro": "What is the intro you would prefer when bot joins?"
     },
+    "discord":{
+        "default": "blank"
+    },
     "other":{
         "prefix": "!",
-        "host": "irc.twitch.tv",
-        "port": "6667",
-        "debug": "on"
+        "debug": "on",
+        "twitchhost": "irc.twitch.tv",
+        "twitchport": "6667"
+        
     }
 }
