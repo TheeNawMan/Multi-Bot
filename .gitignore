@@ -1,2 +1,4 @@
 config/config.json
-*/.pyc
+srv/__pychace__/**
+.gitattributes
+.gitignore
