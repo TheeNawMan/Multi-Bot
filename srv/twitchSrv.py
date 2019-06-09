@@ -2,8 +2,8 @@
 
 import re
 import socket
-from srv.jsonLoader import HOST, CHAN, NICK, PASS, PORT, jsonCfg
-from srv.cmd import *
+from srv.jsonLoader import HOST, CHAN, NICK, PASS, PORT, jsonCfg, jsonCmd
+from srv.cmd import command_test, command_math
 
 def twitchStart():
     if jsonCfg["other"]["debug"] == "on":
@@ -53,9 +53,13 @@ def twitchStart():
     def parse_message(msg):
         if len(msg) >= 1:
             msg = msg.split(' ')
-            options = {'!test': command_test}
+            options = {'!test': command_test(),
+                        '!math': command_math()}
+                        
             if msg[0] in options:
-                options[msg[0]]()
+                cmd = str(options[msg[0]])
+                send_message(CHAN, cmd)
+                
 
     con = socket.socket()
     con.connect((HOST, PORT))
@@ -63,7 +67,9 @@ def twitchStart():
     send_pass(PASS)
     send_nick(NICK)
     join_channel(CHAN)
-
+    
+    send_message(CHAN, str(jsonCfg["twitch"]["intro"]))
+    
     data = ""
     while True:
         try:

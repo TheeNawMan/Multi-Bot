@@ -8,6 +8,3 @@ PORT = int(jsonCfg["other"]["port"])
 CHAN = jsonCfg["twitch"]["channel"]
 NICK = jsonCfg["twitch"]["nick"]
 PASS = jsonCfg["twitch"]["token"]
-
-with open('./config/cmd.json', 'r') as json_cfg_file:
-    jsonCmd = json.load(json_cfg_file)
