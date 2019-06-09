@@ -3,6 +3,8 @@
 import re
 import socket
 from srv.cfgLoad import HOST, CHAN, NICK, PASS, PORT, datastore
+from srv.cmd import command_testw, command_math, command_echo
+from srv.msgHandler import sendMsg
 
 
 if datastore["other"]["debug"] == "on":
@@ -12,23 +14,7 @@ else:
     print(None)
 
 ## Basic function required for the server.
-def send_pong(msg):
-    con.send(bytes('PONG %s\r\n' % msg, 'UTF-8'))
 
-def send_message(chan, msg):
-    con.send(bytes('PRIVMSG %s :%s\r\n' % (chan, msg), 'UTF-8'))
-
-def send_nick(nick):
-    con.send(bytes('NICK %s\r\n' % nick, 'UTF-8'))
-
-def send_pass(password):
-    con.send(bytes('PASS %s\r\n' % password, 'UTF-8'))
-
-def join_channel(chan):
-    con.send(bytes('JOIN %s\r\n' % chan, 'UTF-8'))
-
-def part_channel(chan):
-    con.send(bytes('PART %s\r\n' % chan, 'UTF-8'))
 
 # Start Helper Functions 
 def get_sender(msg):
@@ -55,8 +41,10 @@ def get_message(msg):
 def parse_message(msg):
     if len(msg) >= 1:
         msg = msg.split(' ')
-        options = {'!test': command_test,
-                   '!asdf': command_asdf}
+        options = {'!test': sendMsg(str(command_echo)),
+                   '!asdf': command_asdf,
+                   '!cmd': command_testw(),
+                   '!math': command_math()}
         if msg[0] in options:
             options[msg[0]]()
 
@@ -66,7 +54,7 @@ def command_test():
 
 
 def command_asdf():
-    send_message(CHAN, 'asdfster')
+    send_message(CHAN, command_testw())
 
 ## Build connections for BOT
 
