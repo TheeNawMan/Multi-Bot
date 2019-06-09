@@ -3,6 +3,8 @@
 import re
 import socket
 import json
+import utils.cmd as cmd
+
 
 ## Pull JSON config file
 with open('./config/config.json', 'r') as json_data_file:
@@ -69,7 +71,8 @@ def parse_message(msg):
     if len(msg) >= 1:
         msg = msg.split(' ')
         options = {'!test': command_test,
-                   '!asdf': command_asdf}
+                   '!asdf': command_asdf,
+                   '!cmd': cmd.command_asdf2}
         if msg[0] in options:
             options[msg[0]]()
 
