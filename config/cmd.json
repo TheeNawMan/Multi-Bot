@@ -1,0 +1,12 @@
+{
+    "template":{
+        "message": "",
+        "authusers": "",
+        "level": ""
+    },
+    "test":{
+        "message": "This is a test of the JSON file",
+        "authusers": "all",
+        "level": "0"
+    }
+}
