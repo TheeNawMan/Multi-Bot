@@ -2,17 +2,24 @@
 
 import re
 import socket
+import json
 
-# --------------------------------------------- Start Settings ----------------------------------------------------
-HOST = "irc.twitch.tv"                          # Hostname of the IRC-Server in this case twitch's
-PORT = 6667                                     # Default IRC-Port
-CHAN = "#thee_nawman"                           # Channelname = #{Nickname}
-NICK = "Testing"                                # Nickname = Twitch username
-PASS = "oauth:rl5fmvpalppr6go837or5vxncya8uj"   # www.twitchapps.com/tmi/ will help to retrieve the required authkey
-# --------------------------------------------- End Settings -------------------------------------------------------
+## Pull JSON config file
+with open('./config/config.json', 'r') as json_data_file:
+    datastore = json.load(json_data_file)
 
+## Setup variable to connect to server
+HOST = datastore["other"]["host"]
+PORT = int(datastore["other"]["port"])
+CHAN = datastore["twitch"]["channel"]
+NICK = datastore["twitch"]["nick"]
+PASS = datastore["twitch"]["token"]
+if datastore["other"]["debug"] == "on":
+    print("HOST: " + HOST + "\nCHAN: " + CHAN + "\nNICK: " + NICK + "\nPASS: " + PASS)
+else:
+    print(None)
 
-# --------------------------------------------- Start Functions ----------------------------------------------------
+## Basic function required for the server.
 def send_pong(msg):
     con.send(bytes('PONG %s\r\n' % msg, 'UTF-8'))
 
@@ -35,10 +42,8 @@ def join_channel(chan):
 
 def part_channel(chan):
     con.send(bytes('PART %s\r\n' % chan, 'UTF-8'))
-# --------------------------------------------- End Functions ------------------------------------------------------
 
-
-# --------------------------------------------- Start Helper Functions ---------------------------------------------
+# Start Helper Functions 
 def get_sender(msg):
     result = ""
     for char in msg:
@@ -67,17 +72,16 @@ def parse_message(msg):
                    '!asdf': command_asdf}
         if msg[0] in options:
             options[msg[0]]()
-# --------------------------------------------- End Helper Functions -----------------------------------------------
 
-
-# --------------------------------------------- Start Command Functions --------------------------------------------
+## Commands
 def command_test():
     send_message(CHAN, 'testing some stuff')
 
 
 def command_asdf():
     send_message(CHAN, 'asdfster')
-# --------------------------------------------- End Command Functions ----------------------------------------------
+
+## Build connections for BOT
 
 con = socket.socket()
 con.connect((HOST, PORT))

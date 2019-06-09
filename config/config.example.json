@@ -1,11 +1,15 @@
 {
-    "twitch":{
+    "twitch": {
         "bot_nick": "username",
         "token": "oauth:fullstring",
         "channel": "channelname",
         "client-id": "pasteidhere",
+        "nick": "nickname"
     },
-    "other":{
-        "prefix": "!"
+    "other": {
+        "prefix": "!",
+        "host": "irc.twitch.tv",
+        "port": "6667",
+        "debug": "off"
     }
 }
